@@ -1,13 +1,26 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer utilities {
+    @variants responsive {
+        .masonry {
+            column-gap: 1.5em;
+            column-count: 1;
+        }
+        .masonry-sm {
+            column-gap: 1.5em;
+            column-count: 2;
+        }
+        .masonry-md {
+            column-gap: 1.5em;
+            column-count: 3;
+        }
+        .break-inside {
+            break-inside: avoid;
+        }
 
-/* Основные элементы */
-body, html {
-	height:100%;
+    }
 }
 
 body {
@@ -58,10 +71,6 @@ sup {
 	-webkit-box-shadow:0 2px 2px rgba(17, 17, 17, 0.5);
 	box-shadow:0 2px 2px rgba(17, 17, 17, 0.5);
 	overflow:hidden;
-}
-.container {
-	max-width: 1320px;
-	margin: 0 auto;
 }
 
 /* Текст */
@@ -168,93 +177,7 @@ header {
         height: 300px;
     }     	
         	
-        	
-
-/* Меню сайта */    	
-nav {
-	display:table;
-	width:100%;
-	position: relative;
-	z-index: 1;
-}
-    nav .row {
-    	display:table-row;
-    }
-        nav .logo {
-        	display:table-cell;
-        	vertical-align: top;
-        }
-            nav .logo img {
-            	display:block;
-            	margin:8px 27px 5px 8px;
-            }
-    nav .more_color {
-    	display:table-cell;
-    	width:100%;
-    	vertical-align: top;
-    }
-        header nav, .more_color, .color_row {
-        	background-color:rgba(17, 17, 17, 0.5);
-        }
-        nav, nav a {
-        	color:#fff;
-        }
-    
-    nav .more_color .menu {
-    	font-weight:bold;
-    	padding-left:30px;
-    }
-        nav .more_color .menu li {
-        	float:left;
-        }
-            nav .more_color .menu li a {
-            	display:block;
-            	line-height:60px;
-            	padding:0 30px;
-            }
-                /* < 1023px */
-                @media (max-width:1023px) {
-                	nav .more_color .menu li a {
-                	padding:0 15px;}}
-        	
-            nav .more_color .menu li:first-child a {
-            	padding-left:0;
-            }
-        nav .more_color .mobile_menu li a {
-        	padding:0 10px 0 0;
-        	float:left;
-        }
-    nav .more_color .soc li {
-    	float:right;
-    }
-        nav .more_color .soc li a {
-        	display:block;
-        	line-height:60px;
-        	padding:0 10px;
-        }
-        /* < 1024px */
-        @media (min-width:768px) and (max-width:850px) {
-        	nav .more_color .soc li a {
-        	    font-size: 14px;
-        	    padding:0 10px 0 0;
-            }
-        }
-        
-        
-    header nav {
-    	margin-top:20px;
-    }
-        /* < 1024px */
-        @media (max-width:1024px) {
-        	header nav {
-        	    margin-top:10px;
-            }
-        }
-        @media screen and (min-width:480px) and (max-width:800px) {
-	    	nav .more_color .menu li a {
-            	font-size:90%;
-            }
-	    }
+  
     
 
 /* MMenu */  
