@@ -13,7 +13,7 @@ export default async function Head() {
 }
 
 async function getData() {
-  const res = await fetch("http://server.zinc.cc/api/main-page/?populate=seo");
+  const res = await fetch("http://server.zinc.cc/api/main-page/?populate=seo&locale=ru");
 
   // Recommendation: handle errors
   if (!res.ok) {
