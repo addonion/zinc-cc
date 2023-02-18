@@ -1,0 +1,8 @@
+Host: https://zinc.cc
+
+User-Agent: *
+Disallow: /manager/
+Disallow: /portfolio-intereri/*.html
+Disallow: /contacts/*.html
+
+Sitemap: https://zinc.cc/sitemap.xml

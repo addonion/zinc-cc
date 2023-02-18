@@ -24,25 +24,26 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Зачем нужен дизайн интерьера? */}
-      <section className="line_box">
-        <div className="container mx-auto">
-          <Blocks data={content} />
-        </div>
-      </section>
-
       {/* Цены */}
       <section className="container columns-3 mx-auto">
         {/* @ts-expect-error Server Component */}
         <Plans />
       </section>
 
-      {/* Этапы работы: */}
-      <section className="line_box">
+      <article className="line_box">
         <div className="container mx-auto">
-          <Blocks data={after} />
+          <div className="flex gap-24">
+            {/* Зачем нужен дизайн интерьера? */}
+            <div className="w-2/3">
+              <Blocks data={content} />
+            </div>
+            {/* Этапы работы: */}
+            <div className="w-1/3">
+              <Blocks data={after} />
+            </div>
+          </div>
         </div>
-      </section>
+      </article>
     </>
   );
 }
