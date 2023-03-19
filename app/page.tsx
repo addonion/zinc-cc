@@ -3,6 +3,7 @@ import Blocks from "editorjs-blocks-react-renderer";
 import styles from "./page.module.css";
 import Plans from "./components/Plans";
 import { Suspense } from "react";
+import MainGallery from "./components/MainGallery";
 
 export default async function Home() {
   const [{ data }, phone] = await getData();
@@ -14,7 +15,7 @@ export default async function Home() {
     <>
       {/* Заголовок страницы */}
       <div className="container mx-auto pagetitle_box">
-        <div className="pagetitle text-center">
+        <div className="pagetitle text-center py-12">
           <h1>Дизайн интерьера</h1>
           <div>
             <b>
@@ -24,6 +25,12 @@ export default async function Home() {
         </div>
       </div>
 
+      {/* Последние работы */}
+      <section>
+        {/* @ts-expect-error Async Server Component */}
+        <MainGallery />
+      </section>
+
       {/* Цены */}
       <section className="container columns-3 mx-auto">
         {/* @ts-expect-error Server Component */}
@@ -32,7 +39,7 @@ export default async function Home() {
 
       <article className="line_box">
         <div className="container mx-auto">
-          <div className="flex gap-24">
+          <div className="flex gap-24 py-6">
             {/* Зачем нужен дизайн интерьера? */}
             <div className="w-2/3">
               <Blocks data={content} />
@@ -49,8 +56,8 @@ export default async function Home() {
 }
 
 async function getData() {
-  const res = await fetch("http://server.zinc.cc/api/main-page?locale=ru");
-  const phone = await fetch("https://server.zinc.cc/api/contact?populate=member");
+  const res = await fetch(`${process.env.SERVER_HOST}/api/main-page?locale=ru`);
+  const phone = await fetch(`${process.env.SERVER_HOST}/api/contact?populate=member`);
 
   // Recommendation: handle errors
   if (!res.ok) {
