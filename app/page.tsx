@@ -2,8 +2,17 @@ import Image from "next/image";
 import Blocks from "editorjs-blocks-react-renderer";
 import styles from "./page.module.css";
 import Plans from "./components/Plans";
-import { Suspense } from "react";
 import MainGallery from "./components/MainGallery";
+
+export async function generateMetadata() {
+  const [{ data }] = await getData();
+  const seo = data.attributes.seo;
+
+  return {
+    title: seo.metaTitle,
+    description: seo.metaDescription,
+  };
+}
 
 export default async function Home() {
   const [{ data }, phone] = await getData();
@@ -56,12 +65,11 @@ export default async function Home() {
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/main-page?locale=ru`);
+  console.log(`${process.env.SERVER_HOST}/api/main-page?locale=ru&populate=seo`);
+  const res = await fetch(`${process.env.SERVER_HOST}/api/main-page?locale=ru&populate=seo`);
   const phone = await fetch(`${process.env.SERVER_HOST}/api/contact?populate=member`);
 
-  // Recommendation: handle errors
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
 
