@@ -23,8 +23,8 @@ export default async function Home() {
   return (
     <>
       {/* Заголовок страницы */}
-      <div className="container mx-auto pagetitle_box">
-        <div className="pagetitle text-center py-12">
+      <div className="container mx-auto">
+        <div className="pagetitle text-center text-white py-24">
           <h1>Дизайн интерьера</h1>
           <div>
             <b>
@@ -41,7 +41,7 @@ export default async function Home() {
       </section>
 
       {/* Цены */}
-      <section className="container columns-3 mx-auto">
+      <section className="container columns-3 mx-auto text-white">
         {/* @ts-expect-error Server Component */}
         <Plans />
       </section>
@@ -65,7 +65,6 @@ export default async function Home() {
 }
 
 async function getData() {
-  console.log(`${process.env.SERVER_HOST}/api/main-page?locale=ru&populate=seo`);
   const res = await fetch(`${process.env.SERVER_HOST}/api/main-page?locale=ru&populate=seo`);
   const phone = await fetch(`${process.env.SERVER_HOST}/api/contact?populate=member`);
 
