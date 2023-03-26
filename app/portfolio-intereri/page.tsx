@@ -18,12 +18,12 @@ export default async function Portfolio() {
       </div>
 
       {data.map((project: any) => {
-        let gallery = project.attributes.Content[0].Gallery.data.map((item) => item.attributes);
+        let gallery = project.attributes.Content[0].Gallery.data.map((item: any) => item.attributes);
         console.log();
 
         return (
           <div className={`mx-auto columns-2 md:columns-3 xl:columns-4 mb-24`} key={project.id}>
-            {gallery.map((pic) => (
+            {gallery.map((pic: any) => (
               <div key={pic.hash}>
                 <img src={pic.formats.medium.url} alt={project.attributes.Title} className="mb-4" />
               </div>
