@@ -23,7 +23,7 @@ export default async function Plans() {
 }
 
 async function getData() {
-  const res = await fetch("http://server.zinc.cc/api/plans");
+  const res = await fetch(`${process.env.SERVER_HOST}/api/plans`);
 
   // Recommendation: handle errors
   if (!res.ok) {
