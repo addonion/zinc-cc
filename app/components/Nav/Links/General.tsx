@@ -7,7 +7,6 @@ export function General() {
         { url: "/", title: "Дизайн интерьера" },
         { url: "/dizajn-proekt/", title: "Дизайн проект" },
         { url: "/portfolio-intereri/", title: "Портфолио" },
-        { url: "/blog/", title: "Блог" },
         { url: "/contacts/", title: "Контакты" },
       ].map((item, index) => (
         <Link href={item.url} key={index} className="text-white pr-6">

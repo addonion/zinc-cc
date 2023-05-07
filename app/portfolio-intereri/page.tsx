@@ -20,14 +20,37 @@ export default async function Portfolio() {
       </div>
 
       {data.map((project: any) => {
+        /** Достаём галерею из проекта */
         let gallery = project.attributes.Content[0].Gallery.data.map((item: any) => item.attributes);
+
+        /** Берём 10 рандомных изображений */
+        let randomGallery = [];
+        for (let i = 0; i < 12; i++) {
+          let randomIndex = Math.floor(Math.random() * gallery.length);
+          randomGallery.push(gallery[randomIndex]);
+          gallery.splice(randomIndex, 1);
+        }
+
         return (
-          <div className={`mx-auto columns-2 md:columns-3 xl:columns-4 mb-24`} key={project.id}>
-            {gallery.map((pic: any) => (
-              <div key={pic.hash}>
-                <Image src={pic.formats.medium.url} width={pic.formats.medium.width} height={pic.formats.medium.height} alt={project.attributes.Title} blurDataURL={pic.placeholder} placeholder="blur" className="mb-4" />
-              </div>
-            ))}
+          <div key={project.id} className="mx-auto mb-24">
+            <h2 className="mb-6 text-white">{project.attributes.Title}</h2>
+            <div className={`columns-2 md:columns-3 xl:columns-4`}>
+              {randomGallery.map((pic: any) => {
+                return (
+                  <div key={pic.hash}>
+                    <Image
+                      src={pic.formats.medium.url}
+                      width={pic.formats.medium.width}
+                      height={pic.formats.medium.height}
+                      alt={project.attributes.Title}
+                      blurDataURL={pic.placeholder}
+                      placeholder="blur"
+                      className="mb-4"
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         );
       })}
