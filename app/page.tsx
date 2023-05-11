@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Blocks from "editorjs-blocks-react-renderer";
-import styles from "./page.module.css";
 import Plans from "./components/Plans";
-import MainGallery from "./components/MainGallery";
 
 export async function generateMetadata() {
   const [{ data }] = await getData();
@@ -17,8 +15,8 @@ export async function generateMetadata() {
 export default async function Home() {
   const [{ data }, phone] = await getData();
   const phoneNumber = phone.data.attributes.member.data.attributes.Phone;
-  const content = JSON.parse(data.attributes.Content);
-  const after = JSON.parse(data.attributes.After);
+  const content = JSON.parse(data.attributes.content);
+  const after = JSON.parse(data.attributes.after);
 
   return (
     <>
@@ -33,12 +31,6 @@ export default async function Home() {
           </div>
         </div>
       </div>
-
-      {/* Последние работы */}
-      <section>
-        {/* @ts-expect-error Async Server Component */}
-        <MainGallery />
-      </section>
 
       {/* Цены */}
       <section className="container columns-3 mx-auto text-white">
