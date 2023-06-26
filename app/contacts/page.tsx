@@ -21,7 +21,7 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/projects?populate[Content][populate]=Gallery&populate=picture`);
+  const res = await fetch(`${process.env.SERVER_HOST}/api/projects?populate[content][populate]=gallery&populate=picture`);
 
   // Recommendation: handle errors
   if (!res.ok) {

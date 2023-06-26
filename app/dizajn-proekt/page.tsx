@@ -9,7 +9,7 @@ export async function generateMetadata() {
 
 export default async function Portfolio() {
   const { data } = await getData();
-  const content = JSON.parse(data.attributes.content);
+  const content = data.attributes.content;
 
   return (
     <>
@@ -26,9 +26,7 @@ export default async function Portfolio() {
         <div className="container mx-auto">
           <div className="flex gap-24 py-6">
             {/* Зачем нужен дизайн интерьера? */}
-            <div className="w-2/3 mx-auto">
-              <Blocks data={content} />
-            </div>
+            <div className="w-2/3 mx-auto"  dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </div>
       </article>
@@ -37,7 +35,6 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  console.log(`${process.env.SERVER_HOST}/api/dizajn-proekt?locale=ru&populate=seo`);
   const res = await fetch(`${process.env.SERVER_HOST}/api/dizajn-proekt?locale=ru&populate=seo`);
 
   if (!res.ok) {

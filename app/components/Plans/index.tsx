@@ -1,10 +1,10 @@
-type TPlan = {
+interface TPlan {
   id: number;
   attributes: {
     Name: string;
     Price: string;
   };
-};
+}
 
 export default async function Plans() {
   const { data } = await getData();
@@ -25,9 +25,7 @@ export default async function Plans() {
 async function getData() {
   const res = await fetch(`${process.env.SERVER_HOST}/api/plans`);
 
-  // Recommendation: handle errors
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
 

@@ -1,4 +1,7 @@
+import { Project } from "../@types";
 import Image from "next/image";
+import Link from "next/link";
+import styles from "./style.module.css";
 
 export async function generateMetadata() {
   return {
@@ -19,13 +22,13 @@ export default async function Portfolio() {
         </div>
       </div>
 
-      {data.map((project: any) => {
+      {data.map((project: Project) => {
         /** Достаём галерею из проекта */
-        let gallery = project.attributes.Content[0].Gallery.data.map((item: any) => item.attributes);
+        let gallery = project.attributes.content[0].gallery.data.map((item) => item.attributes);
 
-        /** Берём 10 рандомных изображений */
+        /** Берём 14 рандомных изображений */
         let randomGallery = [];
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 13; i++) {
           let randomIndex = Math.floor(Math.random() * gallery.length);
           randomGallery.push(gallery[randomIndex]);
           gallery.splice(randomIndex, 1);
@@ -33,24 +36,32 @@ export default async function Portfolio() {
 
         return (
           <div key={project.id} className="mx-auto mb-24">
-            <h2 className="mb-6 text-white">{project.attributes.Title}</h2>
-            <div className={`columns-2 md:columns-3 xl:columns-4`}>
-              {randomGallery.map((pic: any) => {
-                return (
-                  <div key={pic.hash}>
-                    <Image
-                      src={pic.formats.medium.url}
-                      width={pic.formats.medium.width}
-                      height={pic.formats.medium.height}
-                      alt={project.attributes.Title}
-                      blurDataURL={pic.placeholder}
-                      placeholder="blur"
-                      className="mb-4"
-                    />
-                  </div>
-                );
-              })}
+            <h2 className="mb-6 text-center text-white">
+              <Link href={`/portfolio-intereri/${project.attributes.slug}/`}>{project.attributes.title}</Link>
+            </h2>
+            <div className="overflow-hidden h-[80vh]">
+              <div className="columns-2 md:columns-3 xl:columns-4">
+                {randomGallery.map((pic) => {
+                  return (
+                    <div key={pic.hash}>
+                      <Image
+                        src={pic.formats.medium.url}
+                        width={pic.formats.medium.width}
+                        height={pic.formats.medium.height}
+                        alt={project.attributes.title}
+                        blurDataURL={pic.placeholder}
+                        placeholder="blur"
+                        className="mb-4"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
+
+            <Link href={`/portfolio-intereri/${project.attributes.slug}/`} className={`${styles.more} text-center text-lg text-white`}>
+              Смотреть весь проект
+            </Link>
           </div>
         );
       })}
@@ -59,11 +70,9 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/projects?populate[Content][populate]=Gallery&populate=picture`);
+  const res = await fetch(`${process.env.SERVER_HOST}/api/projects?populate[content][populate]=gallery&populate=picture`);
 
-  // Recommendation: handle errors
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
 

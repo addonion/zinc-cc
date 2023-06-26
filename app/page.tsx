@@ -1,9 +1,7 @@
-import Image from "next/image";
-import Blocks from "editorjs-blocks-react-renderer";
 import Plans from "./components/Plans";
 
 export async function generateMetadata() {
-  const [{ data }] = await getData();
+  const { data } = await getData();
   const seo = data.attributes.seo;
 
   return {
@@ -13,10 +11,12 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const [{ data }, phone] = await getData();
+  const phone = await getPhone();
   const phoneNumber = phone.data.attributes.member.data.attributes.Phone;
-  const content = JSON.parse(data.attributes.content);
-  const after = JSON.parse(data.attributes.after);
+
+  const { data } = await getData();
+  const content = data.attributes.content;
+  const steps = data.attributes.steps;
 
   return (
     <>
@@ -34,7 +34,6 @@ export default async function Home() {
 
       {/* Цены */}
       <section className="container columns-3 mx-auto text-white">
-        {/* @ts-expect-error Server Component */}
         <Plans />
       </section>
 
@@ -42,13 +41,10 @@ export default async function Home() {
         <div className="container mx-auto">
           <div className="flex gap-24 py-6">
             {/* Зачем нужен дизайн интерьера? */}
-            <div className="w-2/3">
-              <Blocks data={content} />
-            </div>
+            <div className="w-2/3" dangerouslySetInnerHTML={{ __html: content }} />
+
             {/* Этапы работы: */}
-            <div className="w-1/3">
-              <Blocks data={after} />
-            </div>
+            <div className="w-1/3" dangerouslySetInnerHTML={{ __html: steps }} />
           </div>
         </div>
       </article>
@@ -56,13 +52,22 @@ export default async function Home() {
   );
 }
 
-async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/main-page?locale=ru&populate=seo`);
-  const phone = await fetch(`${process.env.SERVER_HOST}/api/contact?populate=member`);
+async function getPhone() {
+  const res = await fetch(`${process.env.SERVER_HOST}/api/contact?populate=member`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
 
-  return Promise.all([res.json(), phone.json()]);
+  return res.json();
+}
+
+async function getData() {
+  const res = await fetch(`${process.env.SERVER_HOST}/api/main-page?locale=ru&populate=seo`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
 }

@@ -3,9 +3,7 @@ import Link from "next/link";
 import styles from "./style.module.css";
 import { General, Social } from "./Links";
 
-type Props = {};
-
-export function Top(props: Props) {
+export function Top() {
   return (
     <header className="container mx-auto mt-4">
       <nav className={`${styles.nav} flex flex-row`}>
