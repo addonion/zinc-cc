@@ -43,7 +43,7 @@ export default async function Portfolio() {
               <div className="columns-2 md:columns-3 xl:columns-4">
                 {randomGallery.map((pic) => {
                   return (
-                    <div key={pic.hash}>
+                    <Link href={`/portfolio-intereri/${project.attributes.slug}/`} key={pic.hash}>
                       <Image
                         src={pic.formats.medium.url}
                         width={pic.formats.medium.width}
@@ -53,7 +53,7 @@ export default async function Portfolio() {
                         placeholder="blur"
                         className="mb-4"
                       />
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
