@@ -1,11 +1,13 @@
 import Script from "next/script";
+import Image from "next/image";
 
 export default function YandexMetrika() {
   return (
-    <Script
-      id="metrika"
-      dangerouslySetInnerHTML={{
-        __html: `
+    <>
+      <Script
+        id="metrika"
+        dangerouslySetInnerHTML={{
+          __html: `
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
@@ -20,7 +22,13 @@ export default function YandexMetrika() {
                   trackHash:true
             });
           `,
-      }}
-    />
+        }}
+      />
+      <noscript>
+        <div>
+          <Image src="https://mc.yandex.ru/watch/30292532" style={{ position: "absolute", left: "-9999px" }} alt="" />
+        </div>
+      </noscript>
+    </>
   );
 }

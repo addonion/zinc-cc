@@ -28,7 +28,7 @@ export default async function Portfolio() {
 
         /** Берём 14 рандомных изображений */
         let randomGallery = [];
-        for (let i = 0; i < 13; i++) {
+        for (let i = 0; i < 9; i++) {
           let randomIndex = Math.floor(Math.random() * gallery.length);
           randomGallery.push(gallery[randomIndex]);
           gallery.splice(randomIndex, 1);
@@ -39,7 +39,7 @@ export default async function Portfolio() {
             <h2 className="mb-6 text-center text-white">
               <Link href={`/portfolio-intereri/${project.attributes.slug}/`}>{project.attributes.title}</Link>
             </h2>
-            <div className="overflow-hidden h-[80vh]">
+            <div className="overflow-hidden h-[60vh]">
               <div className="columns-2 md:columns-3 xl:columns-4">
                 {randomGallery.map((pic) => {
                   return (
