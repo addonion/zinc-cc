@@ -42,6 +42,10 @@ export default async function Portfolio() {
             <div className="overflow-hidden h-[60vh]">
               <div className="columns-2 md:columns-3 xl:columns-4">
                 {randomGallery.map((pic) => {
+                  if (!pic) {
+                    return null
+                  }
+
                   return (
                     <Link href={`/portfolio-intereri/${project.attributes.slug}/`} key={pic.hash}>
                       <Image
@@ -54,7 +58,7 @@ export default async function Portfolio() {
                         className="mb-4"
                       />
                     </Link>
-                  );
+                  )
                 })}
               </div>
             </div>

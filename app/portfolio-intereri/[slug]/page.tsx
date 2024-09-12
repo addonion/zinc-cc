@@ -13,8 +13,8 @@ export default async function Project(props: ProjectPageProps) {
       </div>
 
       {media.map((block: any) => {
-        if (block.__component === "media.gallery") return <Gallery data={block.gallery.data} />;
-        if (block.__component === "media.3-d-tour") return <Tour3D data={block.ftp} />;
+        if (block.__component === "media.gallery") return <Gallery key={block.id} data={block.gallery.data} />;
+        if (block.__component === "media.3-d-tour") return <Tour3D key={block.id} data={block.ftp} />;
       })}
     </div>
   );

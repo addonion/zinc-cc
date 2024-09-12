@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Script from "next/script";
 import Image from "next/image";
 
@@ -26,7 +27,7 @@ export default function YandexMetrika() {
       />
       <noscript>
         <div>
-          <Image src="https://mc.yandex.ru/watch/30292532" style={{ position: "absolute", left: "-9999px" }} alt="" />
+          <img src="https://mc.yandex.ru/watch/30292532" style={{ position: "absolute", left: "-9999px" }} alt="" />
         </div>
       </noscript>
     </>
