@@ -1,6 +1,5 @@
 import { ProjectPageProps } from "../../@types";
-import Image from "next/image";
-import Link from "next/link";
+import ImageGallery from "../../components/ImageGallery";
 
 export default async function Project(props: ProjectPageProps) {
   const { data } = await getData(props);
@@ -28,13 +27,7 @@ const Gallery = ({ data }: { data: any }) => {
   const gallery = data.map((item: any) => item.attributes);
   return (
     <div className="columns-2 md:columns-3 xl:columns-4 pb-24">
-      {gallery.map((pic: any) => {
-        return (
-          <div key={pic.hash}>
-            <Image src={pic.formats.medium.url} width={pic.formats.medium.width} height={pic.formats.medium.height} alt="Изображение" blurDataURL={pic.placeholder} placeholder="blur" className="mb-4" />
-          </div>
-        );
-      })}
+      <ImageGallery gallery={gallery} />
     </div>
   );
 };

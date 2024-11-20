@@ -4,6 +4,8 @@ export async function generateMetadata() {
   const { data } = await getData();
   const seo = data.attributes.seo;
 
+  console.log(seo)
+
   return {
     title: seo.metaTitle,
     description: seo.metaDescription,
