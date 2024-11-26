@@ -4,8 +4,6 @@ export async function generateMetadata() {
   const { data } = await getData();
   const seo = data.attributes.seo;
 
-  console.log(seo)
-
   return {
     title: seo.metaTitle,
     description: seo.metaDescription,
@@ -35,18 +33,18 @@ export default async function Home() {
       </div>
 
       {/* Цены */}
-      <section className="container columns-3 mx-auto text-white">
+      <section className="container columns-3 mx-auto text-white px-6 lg:px-0">
         <Plans />
       </section>
 
       <article className="line_box">
         <div className="container mx-auto">
-          <div className="flex gap-24 py-6">
+          <div className="px-6 lg:px-0 lg:flex gap-24 py-6">
             {/* Зачем нужен дизайн интерьера? */}
-            <div className="w-2/3" dangerouslySetInnerHTML={{ __html: content }} />
+            <div className="lg:w-2/3" dangerouslySetInnerHTML={{ __html: content }} />
 
             {/* Этапы работы: */}
-            <div className="w-1/3" dangerouslySetInnerHTML={{ __html: steps }} />
+            <div className="lg:w-1/3" dangerouslySetInnerHTML={{ __html: steps }} />
           </div>
         </div>
       </article>
