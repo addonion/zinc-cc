@@ -12,7 +12,7 @@ export default async function Plans() {
     <>
       {data.map((plan: TPlan) => (
         <div className="card" key={plan.id}>
-          <div className="title">{plan.attributes.Name}</div>
+          <div className="title text-sm">{plan.attributes.Name}</div>
           <div className="price">
             {plan.attributes.Price} ₽ за м<sup>2</sup>
           </div>
