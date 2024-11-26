@@ -9,7 +9,7 @@ export async function generateMetadata() {
 
 export default async function Portfolio() {
   const { data } = await getData();
-  const content = data.attributes.content;
+  const content = data.content;
 
   return (
     <>
@@ -23,10 +23,10 @@ export default async function Portfolio() {
       </div>
 
       <article className="line_box">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-6 lg:px-0">
           <div className="flex gap-24 py-6">
             {/* Зачем нужен дизайн интерьера? */}
-            <div className="w-2/3 mx-auto"  dangerouslySetInnerHTML={{ __html: content }} />
+            <div className="lg:w-2/3 lg:mx-auto" dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </div>
       </article>

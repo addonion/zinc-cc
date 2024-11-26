@@ -24,7 +24,7 @@ export default async function Portfolio() {
 
       {data.map((project: Project) => {
         /** Достаём галерею из проекта */
-        let gallery = project.attributes.content[0].gallery.data.map((item) => item.attributes);
+        let gallery = project.content[0].gallery;
 
         /** Берём 14 рандомных изображений */
         let randomGallery = [];
@@ -37,7 +37,7 @@ export default async function Portfolio() {
         return (
           <div key={project.id} className="mx-auto mb-24">
             <h2 className="mb-6 text-center text-white">
-              <Link href={`/portfolio-intereri/${project.attributes.slug}/`}>{project.attributes.title}</Link>
+              <Link href={`/portfolio-intereri/${project.slug}/`}>{project.title}</Link>
             </h2>
             <div className="overflow-hidden h-[60vh]">
               <div className="columns-2 md:columns-3 xl:columns-4">
@@ -47,14 +47,12 @@ export default async function Portfolio() {
                   }
 
                   return (
-                    <Link href={`/portfolio-intereri/${project.attributes.slug}/`} key={pic.hash}>
+                    <Link href={`/portfolio-intereri/${project.slug}/`} key={pic.hash}>
                       <Image
                         src={pic.formats.medium.url}
                         width={pic.formats.medium.width}
                         height={pic.formats.medium.height}
-                        alt={project.attributes.title}
-                        blurDataURL={pic.placeholder}
-                        placeholder="blur"
+                        alt={project.title}
                         className="mb-4"
                       />
                     </Link>
@@ -63,7 +61,7 @@ export default async function Portfolio() {
               </div>
             </div>
 
-            <Link href={`/portfolio-intereri/${project.attributes.slug}/`} className={`${styles.more} text-center text-lg text-white`}>
+            <Link href={`/portfolio-intereri/${project.slug}/`} className={`${styles.more} text-center text-lg text-white`}>
               Смотреть весь проект
             </Link>
           </div>
@@ -74,7 +72,7 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/projects?populate[content][populate]=gallery&populate=picture`);
+  const res = await fetch(`${process.env.SERVER_HOST}/api/projects?populate=content.gallery`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

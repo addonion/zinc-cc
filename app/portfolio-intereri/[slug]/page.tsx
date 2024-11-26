@@ -3,16 +3,16 @@ import ImageGallery from "../../components/ImageGallery";
 
 export default async function Project(props: ProjectPageProps) {
   const { data } = await getData(props);
-  const media = data.attributes.content;
+  const media = data.content;
 
   return (
     <div className="container mx-auto">
       <div className="pagetitle text-center text-white py-24">
-        <h1>Проект: «{data.attributes.title}»</h1>
+        <h1>Проект: «{data.title}»</h1>
       </div>
 
       {media.map((block: any) => {
-        if (block.__component === "media.gallery") return <Gallery key={block.id} data={block.gallery.data} />;
+        if (block.__component === "media.gallery") return <Gallery key={block.id} data={block.gallery} />;
         if (block.__component === "media.3-d-tour") return <Tour3D key={block.id} data={block.ftp} />;
       })}
     </div>
@@ -24,7 +24,7 @@ const Tour3D = ({ data }: { data: any }) => {
 };
 
 const Gallery = ({ data }: { data: any }) => {
-  const gallery = data.map((item: any) => item.attributes);
+  const gallery = data.map((item: any) => item);
   return (
     <div className="columns-2 md:columns-3 xl:columns-4 pb-24">
       <ImageGallery gallery={gallery} />
@@ -34,7 +34,7 @@ const Gallery = ({ data }: { data: any }) => {
 
 async function getData(props: ProjectPageProps) {
   const { data } = await getPostId(props.params.slug);
-  const res = await fetch(`${process.env.SERVER_HOST}/api/projects/${data[0].id}?populate[content][populate]=gallery&populate=picture`);
+  const res = await fetch(`${process.env.SERVER_HOST}/api/projects/${data[0].documentId}?populate=content.gallery`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

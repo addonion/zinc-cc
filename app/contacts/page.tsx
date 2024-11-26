@@ -20,16 +20,16 @@ export default async function Portfolio() {
       </div>
 
       <article className="line_box">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-6 lg:px-0">
           <div className="flex gap-24 py-6">
             {data.map((team: any) => {
-              const { Name, Role, Phone, Email } = team.attributes
+              const { Name, Role, Phone, Email } = team
               return (
-                <div key={team.id} className="w-1/3 mx-auto">
+                <div key={team.id} className="lg:w-1/3 lg:mx-auto">
                   <h2>{Name}</h2>
                   <p>{Role}</p>
                   <p>
-                    Телефон: <a href={`tel:+${Phone.replace(/[+-\s]/g, "")}`}>{Phone}</a>
+                    Телефон: {Phone && <a href={`tel:+${Phone.replace(/[+-\s]/g, "")}`}>{Phone}</a>}
                   </p>
                   <p>
                     Email: <a href={`mailto:${Email}`}>{Email}</a>

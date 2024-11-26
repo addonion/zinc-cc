@@ -7,14 +7,14 @@ import Image from "next/image";
 import { Pic } from '../@types';
 
 type Gallery = {
-  gallery: Pic['attributes'][]
+  gallery: Pic[]
 }
 
 const ImageGallery: React.FC<Gallery> = ({ gallery }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<Pic['attributes'] | null>(null);
+  const [selectedImage, setSelectedImage] = useState<Pic | null>(null);
 
-  const openModal = (pic: Pic['attributes']) => {
+  const openModal = (pic: Pic) => {
     setSelectedImage(pic);
     setIsModalOpen(true);
   };
@@ -33,8 +33,6 @@ const ImageGallery: React.FC<Gallery> = ({ gallery }) => {
             width={pic.formats.medium.width}
             height={pic.formats.medium.height}
             alt={`Изображение ${index + 1}`}
-            blurDataURL={pic.placeholder}
-            placeholder="blur"
             className="mb-4 cursor-pointer"
             onClick={() => openModal(pic)}
           />

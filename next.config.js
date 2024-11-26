@@ -14,12 +14,25 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "media.zinc.cc",
+        hostname: "server.zinc.cc",
       },
     ],
   },
   experimental: {
     nextScriptWorkers: true,
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: "frame-src https://3d.zinc.cc; child-src https://3d.zinc.cc;",
+          },
+        ],
+      },
+    ];
   },
 };
 

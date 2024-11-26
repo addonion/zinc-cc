@@ -7,7 +7,7 @@ import { Pic } from '../@types';
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  pic: Pic['attributes'] | null;
+  pic: Pic | null;
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, pic }) => {
@@ -37,8 +37,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, pic }) => {
           width={pic.formats.large.width}
           height={pic.formats.large.height}
           alt={`Изображение`}
-          blurDataURL={pic.placeholder}
-          placeholder="blur"
           className="mb-4 cursor-pointer"
           onClick={onClose}
         />

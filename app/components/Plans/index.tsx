@@ -1,20 +1,19 @@
 interface TPlan {
   id: number;
-  attributes: {
-    Name: string;
-    Price: string;
-  };
+  Name: string;
+  Price: string;
 }
 
 export default async function Plans() {
   const { data } = await getData();
+
   return (
     <>
       {data.map((plan: TPlan) => (
         <div className="card" key={plan.id}>
-          <div className="title">{plan.attributes.Name}</div>
+          <div className="title text-sm">{plan.Name}</div>
           <div className="price">
-            {plan.attributes.Price} ₽ за м<sup>2</sup>
+            {plan.Price} ₽ за м<sup>2</sup>
           </div>
         </div>
       ))}
