@@ -1,5 +1,5 @@
 export interface ProjectPageProps {
-  params: { slug: string },
+  params: Promise<{ slug: string }>;
 }
 
 export interface Project {
@@ -9,15 +9,16 @@ export interface Project {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  content: [Content]
+  documentId?: string;
+  content: Content[];
 }
 
 export interface Content {
-  gallery: [Pic]
+  gallery: Pic[];
 }
 
 export interface Pic {
-  id: number,
+  id: number;
   name: string;
   alternativeText: string | null;
   caption: string | null;

@@ -1,5 +1,7 @@
-import { ProjectPageProps } from "../../@types";
+import { ProjectPageProps } from "../../types";
 import ImageGallery from "../../components/ImageGallery";
+import { fetchApi } from "../../lib/api";
+import { notFound } from "next/navigation";
 
 export default async function Project(props: ProjectPageProps) {
   const { data } = await getData(props);
@@ -33,22 +35,18 @@ const Gallery = ({ data }: { data: any }) => {
 };
 
 async function getData(props: ProjectPageProps) {
-  const { data } = await getPostId(props.params.slug);
-  const res = await fetch(`${process.env.SERVER_HOST}/api/projects/${data[0].documentId}?populate=content.gallery`);
+  const { slug } = await props.params;
+  const { data } = await getPostId(slug);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+  if (!data[0]) {
+    notFound();
   }
 
-  return res.json();
+  return fetchApi<any>(`/api/projects/${data[0].documentId}?populate=content.gallery`);
 }
 
 async function getPostId(slug: string) {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/projects?filters[slug][$eq]=${slug}`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+  return fetchApi<{ data: Array<{ documentId: string }> }>(
+    `/api/projects?filters[slug][$eq]=${encodeURIComponent(slug)}`,
+  );
 }

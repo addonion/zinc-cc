@@ -1,3 +1,5 @@
+import { fetchApi } from "../../lib/api";
+
 interface TPlan {
   id: number;
   Name: string;
@@ -22,11 +24,5 @@ export default async function Plans() {
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/plans`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+  return fetchApi<{ data: TPlan[] }>("/api/plans");
 }

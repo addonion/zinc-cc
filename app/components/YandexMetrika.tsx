@@ -3,6 +3,10 @@ import Script from "next/script";
 import Image from "next/image";
 
 export default function YandexMetrika() {
+  if (process.env.NODE_ENV !== "production") {
+    return null;
+  }
+
   return (
     <>
       <Script

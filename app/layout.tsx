@@ -12,8 +12,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
 
         <Bottom />
+        <YandexMetrika />
       </body>
-      <YandexMetrika />
     </html>
   );
 }

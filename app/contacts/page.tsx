@@ -1,3 +1,13 @@
+import { fetchApi } from "../lib/api";
+
+interface Team {
+  id: number;
+  Name: string;
+  Role: string;
+  Phone?: string;
+  Email: string;
+}
+
 export async function generateMetadata() {
   return {
     title: "Дизайн проект дома, коттеджа и квартиры в Перми",
@@ -22,7 +32,7 @@ export default async function Portfolio() {
       <article className="line_box">
         <div className="container mx-auto px-6 lg:px-0">
           <div className="flex gap-24 py-6">
-            {data.map((team: any) => {
+            {data.map((team: Team) => {
               const { Name, Role, Phone, Email } = team
               return (
                 <div key={team.id} className="lg:w-1/3 lg:mx-auto">
@@ -45,13 +55,5 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/teams`);
-
-  // Recommendation: handle errors
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+  return fetchApi<{ data: Team[] }>("/api/teams");
 }

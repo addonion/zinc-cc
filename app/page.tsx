@@ -1,20 +1,28 @@
 import Plans from "./components/Plans";
+import { fetchApi } from "./lib/api";
 
 export async function generateMetadata() {
-  const { data } = await getData();
-  const seo = data.seo;
+  try {
+    const { data } = await getData();
+    const seo = data.seo;
 
-  return {
-    title: seo.metaTitle,
-    description: seo.metaDescription,
-  };
+    return {
+      title: seo.metaTitle,
+      description: seo.metaDescription,
+    };
+  } catch {
+    return {
+      title: "Дизайн интерьера",
+      description: "Студия дизайна интерьера.",
+    };
+  }
 }
 
 export default async function Home() {
-  const phone = await getPhone();
+  const [phone, page] = await Promise.all([getPhone(), getData()]);
   const phoneNumber = phone.data.member.Phone;
 
-  const { data } = await getData();
+  const { data } = page;
   const content = data.content;
   const steps = data.steps;
 
@@ -53,21 +61,11 @@ export default async function Home() {
 }
 
 async function getPhone() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/contact?populate=member`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+  return fetchApi<{ data: { member: { Phone: string } } }>("/api/contact?populate=member");
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/main-page?locale=ru&populate=seo`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+  return fetchApi<{ data: { seo: { metaTitle: string; metaDescription: string }; content: string; steps: string } }>(
+    "/api/main-page?locale=ru&populate=seo",
+  );
 }

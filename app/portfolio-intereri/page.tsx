@@ -1,7 +1,9 @@
-import { Project } from "../@types";
+import { Pic, Project } from "../types";
+import { fetchApi } from "../lib/api";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./style.module.css";
+import { getImageSource } from "../lib/media";
 
 export async function generateMetadata() {
   return {
@@ -23,16 +25,7 @@ export default async function Portfolio() {
       </div>
 
       {data.map((project: Project) => {
-        /** Достаём галерею из проекта */
-        let gallery = project.content[0].gallery;
-
-        /** Берём 14 рандомных изображений */
-        let randomGallery = [];
-        for (let i = 0; i < 9; i++) {
-          let randomIndex = Math.floor(Math.random() * gallery.length);
-          randomGallery.push(gallery[randomIndex]);
-          gallery.splice(randomIndex, 1);
-        }
+        const randomGallery = getPreviewGallery(project);
 
         return (
           <div key={project.id} className="mx-auto mb-24">
@@ -45,14 +38,15 @@ export default async function Portfolio() {
                   if (!pic) {
                     return null
                   }
+                  const image = getImageSource(pic, ["medium", "small", "thumbnail"]);
 
                   return (
                     <Link href={`/portfolio-intereri/${project.slug}/`} key={pic.hash}>
                       <Image
-                        src={pic.formats.medium.url}
-                        width={pic.formats.medium.width}
-                        height={pic.formats.medium.height}
-                        alt={project.title}
+                        src={image.src}
+                        width={image.width}
+                        height={image.height}
+                        alt={pic.alternativeText || project.title}
                         className="mb-4"
                       />
                     </Link>
@@ -72,11 +66,24 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/projects?populate=content.gallery`);
+  return fetchApi<{ data: Project[] }>("/api/projects?populate=content.gallery");
+}
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+function getPreviewGallery(project: Project) {
+  const gallery = project.content[0].gallery;
+
+  return [...gallery]
+    .sort((a, b) => seededScore(project.slug, a.hash) - seededScore(project.slug, b.hash))
+    .slice(0, 9);
+}
+
+function seededScore(seed: string, value: Pic["hash"]) {
+  const source = `${seed}:${value}`;
+  let hash = 0;
+
+  for (let i = 0; i < source.length; i++) {
+    hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
   }
 
-  return res.json();
+  return hash;
 }

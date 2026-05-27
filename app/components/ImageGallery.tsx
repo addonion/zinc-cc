@@ -1,14 +1,14 @@
-// components/ImageGallery.tsx
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Modal from './Modal';
+import React, { useState } from "react";
+import Modal from "./Modal";
 import Image from "next/image";
-import { Pic } from '../@types';
+import { Pic } from "../types";
+import { getImageSource } from "../lib/media";
 
 type Gallery = {
-  gallery: Pic[]
-}
+  gallery: Pic[];
+};
 
 const ImageGallery: React.FC<Gallery> = ({ gallery }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,14 +28,25 @@ const ImageGallery: React.FC<Gallery> = ({ gallery }) => {
     <div>
       {gallery.map((pic, index) => (
         <div key={pic.hash}>
-          <Image
-            src={pic.formats.medium.url}
-            width={pic.formats.medium.width}
-            height={pic.formats.medium.height}
-            alt={`Изображение ${index + 1}`}
-            className="mb-4 cursor-pointer"
+          <button
+            type="button"
+            className="mb-4 block cursor-zoom-in border-0 bg-transparent p-0 text-left"
+            aria-label={`Открыть изображение ${index + 1}`}
             onClick={() => openModal(pic)}
-          />
+          >
+            {(() => {
+              const image = getImageSource(pic, ["medium", "small", "thumbnail"]);
+
+              return (
+                <Image
+                  src={image.src}
+                  width={image.width}
+                  height={image.height}
+                  alt={pic.alternativeText || `Изображение ${index + 1}`}
+                />
+              );
+            })()}
+          </button>
         </div>
       ))}
 

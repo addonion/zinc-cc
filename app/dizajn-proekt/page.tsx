@@ -1,4 +1,4 @@
-import Blocks from "editorjs-blocks-react-renderer";
+import { fetchApi } from "../lib/api";
 
 export async function generateMetadata() {
   return {
@@ -35,11 +35,5 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  const res = await fetch(`${process.env.SERVER_HOST}/api/dizajn-proekt?locale=ru&populate=seo`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+  return fetchApi<{ data: { content: string } }>("/api/dizajn-proekt?locale=ru&populate=seo");
 }
