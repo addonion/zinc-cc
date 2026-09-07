@@ -18,9 +18,6 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    nextScriptWorkers: true,
-  },
   async headers() {
     return [
       {

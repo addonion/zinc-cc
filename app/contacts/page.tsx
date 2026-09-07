@@ -1,4 +1,6 @@
+import JsonLd from "../components/JsonLd";
 import { fetchApi } from "../lib/api";
+import { SITE_URL, orgRef } from "../lib/schema";
 
 interface Team {
   id: number;
@@ -10,8 +12,11 @@ interface Team {
 
 export async function generateMetadata() {
   return {
-    title: "Дизайн проект дома, коттеджа и квартиры в Перми",
-    description: "Дизайн проект — это финал всего дизайна, это воплощение всей проделанной работы. Вся необходимая документация для вашего ремонта.",
+    title: "Контакты студии дизайна ZINC в Перми",
+    description: "Дизайнер Екатерина Зубакова. Тел. +7 909 100-46-52, info@zinc.cc. Офис: ул. Чернышевского, 28, 5 этаж, Пермь. Первая встреча бесплатно.",
+    alternates: {
+      canonical: "/contacts/",
+    },
   };
 }
 
@@ -20,11 +25,13 @@ export default async function Portfolio() {
 
   return (
     <>
+      <JsonLd data={getContactsSchema(data)} />
+
       <div className="container mx-auto">
         <div className="pagetitle text-center text-white py-24">
-          <h1>Контактная информация</h1>
+          <h1>Контакты студии дизайна интерьера ZINC</h1>
           <div>
-            <b>контакты, телефоны, почта и адрес</b>
+            <b>контакты, телефоны, почта и адрес</b>
           </div>
         </div>
       </div>
@@ -48,10 +55,37 @@ export default async function Portfolio() {
               )
             })}
           </div>
+          <p className="lg:w-1/3 lg:mx-auto">Адрес: ул. Чернышевского, 28, 5 этаж, Пермь</p>
         </div>
       </article>
     </>
   );
+}
+
+function getContactsSchema(team: Team[]) {
+  const url = `${SITE_URL}/contacts/`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": `${url}#page`,
+        url,
+        name: "Контакты студии дизайна интерьера ZINC",
+        inLanguage: "ru-RU",
+        about: orgRef,
+      },
+      ...team.map((member) => ({
+        "@type": "Person",
+        name: member.Name,
+        jobTitle: member.Role,
+        email: member.Email,
+        ...(member.Phone && { telephone: member.Phone }),
+        worksFor: orgRef,
+      })),
+    ],
+  };
 }
 
 async function getData() {

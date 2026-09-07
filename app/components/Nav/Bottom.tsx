@@ -9,7 +9,7 @@ export function Bottom() {
       <nav className={`${styles.nav} flex flex-row`}>
         <div className={`${styles.logo}`}>
           <Link href="/">
-            <Image src="/img/logo_footer.png" width={46} height={47} alt="Дизайн интерьера в Перми" title="Дизайн интерьера в Перми" />
+            <Image src="/img/logo_footer.png" width={46} height={47} alt="Дизайн интерьера в Перми" title="Дизайн интерьера в Перми" />
           </Link>
         </div>
 

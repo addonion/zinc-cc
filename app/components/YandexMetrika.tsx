@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Script from "next/script";
-import Image from "next/image";
 
 export default function YandexMetrika() {
   if (process.env.NODE_ENV !== "production") {

@@ -7,8 +7,11 @@ import { getImageSource } from "../lib/media";
 
 export async function generateMetadata() {
   return {
-    title: "Портфолио: Интерьеры созданные в студии",
-    description: "У нас богатое портфолио работ в области дизайна интерьера, есть и классические работы, но больше мы склоняемся к современному стилю.",
+    title: "Портфолио дизайна интерьера в Перми — квартиры и дома",
+    description: "Портфолио студии дизайна интерьера ZINC в Перми: реализованные проекты квартир и домов. Смотрите интерьеры, созданные нашей командой.",
+    alternates: {
+      canonical: "/portfolio-intereri/",
+    },
   };
 }
 
@@ -18,7 +21,7 @@ export default async function Portfolio() {
   return (
     <div className="container mx-auto">
       <div className="pagetitle text-center text-white py-24">
-        <h1>Портфолио</h1>
+        <h1>Портфолио интерьеров — Пермь</h1>
         <div>
           <b>работы, полные уюта</b>
         </div>

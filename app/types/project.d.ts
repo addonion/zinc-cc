@@ -42,7 +42,7 @@ export interface Pic {
   url: string;
   previewUrl: string | null;
   provider: string;
-  provider_metadata: any;
+  provider_metadata: unknown;
   createdAt: string;
   updatedAt: string;
   placeholder: string;

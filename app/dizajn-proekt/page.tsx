@@ -1,10 +1,30 @@
 import { fetchApi } from "../lib/api";
 
 export async function generateMetadata() {
-  return {
-    title: "Дизайн проект дома, коттеджа и квартиры в Перми",
-    description: "Дизайн проект — это финал всего дизайна, это воплощение всей проделанной работы. Вся необходимая документация для вашего ремонта.",
+  const fallback = {
+    title: "Дизайн проект дома, коттеджа и квартиры в Перми",
+    description: "Дизайн проект — это финал всего дизайна, это воплощение всей проделанной работы. Вся необходимая документация для вашего ремонта.",
   };
+
+  try {
+    const { data } = await getData();
+    const seo = data.seo;
+
+    return {
+      title: seo?.metaTitle || fallback.title,
+      description: seo?.metaDescription || fallback.description,
+      alternates: {
+        canonical: "/dizajn-proekt/",
+      },
+    };
+  } catch {
+    return {
+      ...fallback,
+      alternates: {
+        canonical: "/dizajn-proekt/",
+      },
+    };
+  }
 }
 
 export default async function Portfolio() {
@@ -15,7 +35,7 @@ export default async function Portfolio() {
     <>
       <div className="container mx-auto">
         <div className="pagetitle text-center text-white py-24">
-          <h1>Дизайн проект</h1>
+          <h1>Дизайн-проект квартиры, дома и коттеджа в Перми</h1>
           <div>
             <b>финал дизайна интерьера</b>
           </div>
@@ -35,5 +55,7 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  return fetchApi<{ data: { content: string } }>("/api/dizajn-proekt?locale=ru&populate=seo");
+  return fetchApi<{ data: { seo?: { metaTitle?: string; metaDescription?: string }; content: string } }>(
+    "/api/dizajn-proekt?locale=ru&populate=seo",
+  );
 }

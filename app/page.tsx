@@ -2,18 +2,28 @@ import Plans from "./components/Plans";
 import { fetchApi } from "./lib/api";
 
 export async function generateMetadata() {
+  const fallback = {
+    title: "Дизайн интерьера в Перми — студия ZINC",
+    description: "Студия дизайна интерьера.",
+  };
+
   try {
     const { data } = await getData();
     const seo = data.seo;
 
     return {
-      title: seo.metaTitle,
-      description: seo.metaDescription,
+      title: seo?.metaTitle || fallback.title,
+      description: seo?.metaDescription || fallback.description,
+      alternates: {
+        canonical: "/",
+      },
     };
   } catch {
     return {
-      title: "Дизайн интерьера",
-      description: "Студия дизайна интерьера.",
+      ...fallback,
+      alternates: {
+        canonical: "/",
+      },
     };
   }
 }
@@ -31,7 +41,7 @@ export default async function Home() {
       {/* Заголовок страницы */}
       <div className="container mx-auto">
         <div className="pagetitle text-center text-white py-24">
-          <h1>Дизайн интерьера</h1>
+          <h1>Дизайн интерьера в Перми</h1>
           <div>
             <b>
               <a href={`tel:+${phoneNumber.replace(/[+-\s]/g, "")}`}>{phoneNumber}</a>
@@ -41,7 +51,7 @@ export default async function Home() {
       </div>
 
       {/* Цены */}
-      <section className="container columns-4 mx-auto text-white px-6 lg:px-0">
+      <section className="container mx-auto grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6 text-white px-6 lg:px-0">
         <Plans />
       </section>
 
