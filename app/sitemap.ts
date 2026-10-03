@@ -6,6 +6,8 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/`, changeFrequency: "monthly", priority: 1 },
   { url: `${SITE_URL}/portfolio-intereri/`, changeFrequency: "weekly", priority: 0.9 },
   { url: `${SITE_URL}/dizajn-proekt/`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${SITE_URL}/dizajn-kvartiry/`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${SITE_URL}/podgotovka-k-dizajn-proektu/`, changeFrequency: "monthly", priority: 0.6 },
   { url: `${SITE_URL}/contacts/`, changeFrequency: "yearly", priority: 0.5 },
 ];
 

@@ -28,6 +28,10 @@ export function Bottom() {
 
         <Social />
       </nav>
+      <nav aria-label="Услуги и подготовка к проекту" className="flex flex-wrap gap-x-6 gap-y-3 px-6 pt-6 text-white text-sm">
+        <Link href="/dizajn-kvartiry/">Дизайн квартиры в Перми</Link>
+        <Link href="/podgotovka-k-dizajn-proektu/">Как подготовиться к дизайн-проекту</Link>
+      </nav>
     </footer>
   );
 }

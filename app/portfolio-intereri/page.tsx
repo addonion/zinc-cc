@@ -69,7 +69,22 @@ export default async function Portfolio() {
 }
 
 async function getData() {
-  return fetchApi<{ data: Project[] }>("/api/projects?populate=content.gallery");
+  const data: Project[] = [];
+  let page = 1;
+  let pageCount = 1;
+
+  do {
+    const response = await fetchApi<{
+      data: Project[];
+      meta: { pagination: { pageCount: number } };
+    }>(`/api/projects?populate=content.gallery&pagination[pageSize]=25&pagination[page]=${page}`);
+
+    data.push(...response.data);
+    pageCount = response.meta.pagination.pageCount;
+    page += 1;
+  } while (page <= pageCount);
+
+  return { data };
 }
 
 function getPreviewGallery(project: Project) {

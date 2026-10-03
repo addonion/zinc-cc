@@ -1,0 +1,44 @@
+query	yandex_broad	yandex_fixed_forms	intent	proposed_target	monitoring
+дизайнер интерьера	997	59	commercial_candidate	/	added_to_topvisor
+студия дизайна интерьера	91	18	commercial_candidate	/	added_to_topvisor
+услуги дизайнера интерьера	19	9	commercial_candidate	/	added_to_topvisor
+заказать дизайн интерьера	9	9	commercial_candidate	/	added_to_topvisor
+дизайн квартиры	1173	3	mixed	/dizajn-kvartiry/	candidate_only
+дизайн интерьера квартиры	123	1	mixed	/dizajn-kvartiry/	candidate_only
+дизайн квартир	1173	5	mixed	/dizajn-kvartiry/	candidate_only
+дизайнер интерьера квартиры	19	0	commercial_candidate	/dizajn-kvartiry/	candidate_only
+дизайн проект квартиры	312	96	commercial_candidate	/dizajn-kvartiry/	added_to_topvisor
+заказать дизайн проект квартиры	7	3	commercial_candidate	/dizajn-kvartiry/	added_to_topvisor
+дизайн проект квартиры цена	0	0	commercial_candidate	/dizajn-kvartiry/	candidate_only
+дизайн проект квартиры стоимость	66	66	commercial_candidate	/dizajn-kvartiry/	added_to_topvisor
+стоимость дизайна квартиры	68	0	commercial_candidate	/dizajn-kvartiry/	candidate_only
+стоимость дизайн проекта за м2	4	1	commercial_candidate	/	candidate_only
+цена дизайн проекта квартиры	0	0	commercial_candidate	/dizajn-kvartiry/	candidate_only
+стоимость дизайн проекта	85	0	commercial_candidate	/	candidate_only
+дизайн проект стоимость	85	0	commercial_candidate	/	candidate_only
+технический дизайн проект квартиры	3	2	commercial_candidate	/dizajn-kvartiry/	added_to_topvisor
+дизайн проект однокомнатной квартиры	5	0	commercial_candidate	/dizajn-kvartiry/	candidate_only
+дизайн проект двухкомнатной квартиры	3	0	commercial_candidate	/dizajn-kvartiry/	candidate_only
+дизайн проект трехкомнатной квартиры	9	0	commercial_candidate	/dizajn-kvartiry/	candidate_only
+дизайн проект квартиры студии	6	0	commercial_candidate	/dizajn-kvartiry/	candidate_only
+дизайн интерьера дома	62	11	commercial_candidate	/	added_to_topvisor
+дизайн проект дома	43	0	commercial_candidate	/	candidate_only
+дизайн коттеджа	8	0	commercial_candidate	/	candidate_only
+дизайн интерьера коттеджа	0	0	commercial_candidate	/	candidate_only
+авторский надзор дизайнера	2	0	commercial_candidate	/dizajn-proekt/	candidate_only
+авторский надзор ремонт	20	0	commercial_candidate	/dizajn-proekt/	candidate_only
+стоимость авторского надзора	16	0	commercial_candidate	/dizajn-proekt/	candidate_only
+планировка квартиры	1710	13	mixed	/	candidate_only
+планировочное решение квартиры	10	1	commercial_candidate	/dizajn-proekt/	added_to_topvisor
+рабочая документация дизайн проекта	9	0	commercial_candidate	/dizajn-proekt/	candidate_only
+что входит в дизайн проект квартиры	0	0	informational	/dizajn-proekt/	candidate_only
+что входит в дизайн проект	2	0	informational	/dizajn-proekt/	candidate_only
+этапы дизайн проекта	23	1	informational	/dizajn-proekt/	added_to_topvisor
+как подготовиться к дизайн проекту	0	0	informational	/podgotovka-k-dizajn-proektu/	candidate_only
+подготовка к встрече с дизайнером	0	0	informational	/podgotovka-k-dizajn-proektu/	candidate_only
+техническое задание дизайнеру интерьера	1	0	informational	/podgotovka-k-dizajn-proektu/	candidate_only
+техническое задание на дизайн проект	2	0	informational	/podgotovka-k-dizajn-proektu/	candidate_only
+бриф на дизайн интерьера	0	0	informational	/podgotovka-k-dizajn-proektu/	candidate_only
+как выбрать дизайнера интерьера	1	0	informational	/dizajn-proekt/	candidate_only
+сколько стоит дизайнер интерьера	5	0	mixed	/	candidate_only
+дизайн однокомнатной квартиры	82	11	mixed	/dizajn-kvartiry/	added_to_topvisor
