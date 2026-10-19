@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { fetchApi } from "../lib/api";
 
 export async function generateMetadata() {
@@ -35,7 +36,7 @@ export default async function Portfolio() {
     <>
       <div className="container mx-auto">
         <div className="pagetitle text-center text-white py-24">
-          <h1>Дизайн-проект квартиры, дома и коттеджа в Перми</h1>
+          <h1>Дизайн-проект интерьера в Перми</h1>
           <div>
             <b>финал дизайна интерьера</b>
           </div>
@@ -46,7 +47,13 @@ export default async function Portfolio() {
         <div className="container mx-auto px-6 lg:px-0">
           <div className="flex gap-24 py-6">
             {/* Зачем нужен дизайн интерьера? */}
-            <div className="lg:w-2/3 lg:mx-auto" dangerouslySetInnerHTML={{ __html: content }} />
+            <div className="lg:w-2/3 lg:mx-auto">
+              <div dangerouslySetInnerHTML={{ __html: content }} />
+              <nav aria-label="Дизайн-проект по типу объекта" className="mt-10 space-y-2">
+                <p><Link href="/dizajn-kvartiry/">Дизайн-проект квартиры в Перми: стоимость и примеры</Link></p>
+                <p><Link href="/">Дизайн интерьера дома и коттеджа в Перми</Link></p>
+              </nav>
+            </div>
           </div>
         </div>
       </article>

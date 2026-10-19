@@ -16,6 +16,7 @@ export function Top() {
         <div className="hidden lg:flex lg:flex-row md:space-x-6 font-bold items-center">
           {[
             { url: "/", title: "Дизайн интерьера" },
+            { url: "/dizajn-kvartiry/", title: "Дизайн квартиры" },
             { url: "/dizajn-proekt/", title: "Дизайн проект" },
             { url: "/portfolio-intereri/", title: "Портфолио" },
             { url: "/contacts/", title: "Контакты" },
@@ -46,6 +47,7 @@ export function Top() {
               <menu className="flex flex-col md:space-x-6 font-bold items-end text-xl gap-y-4">
                 {[
                   { url: "/", title: "Дизайн интерьера" },
+                  { url: "/dizajn-kvartiry/", title: "Дизайн квартиры" },
                   { url: "/dizajn-proekt/", title: "Дизайн проект" },
                   { url: "/portfolio-intereri/", title: "Портфолио" },
                   { url: "/contacts/", title: "Контакты" },

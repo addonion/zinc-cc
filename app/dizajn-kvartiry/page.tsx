@@ -4,9 +4,43 @@ import JsonLd from "../components/JsonLd";
 import Plans from "../components/Plans";
 import { SITE_URL, orgRef } from "../lib/schema";
 
-const title = "Дизайн-проект квартиры в Перми — ZINC";
+const title = "Дизайн квартиры в Перми — дизайн-проект и цены | ZINC";
 const description = "Дизайн-проект квартиры в Перми: планировка, мебель, освещение, 3D-тур и чертежи. Примеры квартир из портфолио ZINC, состав проекта и тарифы.";
 const url = `${SITE_URL}/dizajn-kvartiry/`;
+
+const apartmentCases = [
+  { slug: "Surname", title: "ЖК «Фамилия» — трёхкомнатная квартира" },
+  { slug: "Aviator", title: "Квартира в ЖК «Авиатор»" },
+  { slug: "Siberian", title: "Реконструкция квартиры на ул. Сибирской" },
+  { slug: "Ostrovsky", title: "Четырёхкомнатная квартира на ул. Островского" },
+  { slug: "Sunny_City", title: "Квартира в ЖК «Солнечный город»" },
+  { slug: "Astra", title: "Квартира в ЖК «Астра»" },
+  { slug: "Iris", title: "Квартира в ЖК «Ирис»" },
+  { slug: "Victoria", title: "Квартира в ЖК «Виктория»" },
+  { slug: "Permian_Bears", title: "Квартира в ЖК «Пермские медведи»" },
+  { slug: "Leo_Tolstoy", title: "Квартира на ул. Льва Толстого" },
+  { slug: "Krisanova", title: "Квартира на ул. Крисанова" },
+  { slug: "Chelyuskintsev", title: "Квартира на ул. Челюскинцев" },
+];
+
+const faq = [
+  {
+    question: "Сколько стоит дизайн-проект квартиры?",
+    answer: "Стоимость зависит от площади: тарифы пакетов «Технический» и «Полный» указаны за квадратный метр. Авторский надзор оплачивается отдельно. Итоговую сумму и состав пакета фиксируем в договоре.",
+  },
+  {
+    question: "Что входит в дизайн-проект квартиры?",
+    answer: "Планировочное решение, стилистические коллажи, 3D-тур и рабочая документация: планы отделки, освещения, розеток и выключателей, чертежи мебели под заказ и ведомость материалов. Точный состав зависит от выбранного пакета.",
+  },
+  {
+    question: "С чего начинается работа над квартирой?",
+    answer: "С технического задания и обмеров. Затем готовим варианты планировки, а после её согласования прорабатываем стиль, мебель, освещение и рабочие чертежи.",
+  },
+  {
+    question: "Сколько стоит первая консультация?",
+    answer: "Первая консультация бесплатная. Для встречи пригодятся план квартиры, пожелания по помещениям и примеры интерьеров, которые вам нравятся.",
+  },
+];
 
 export const metadata: Metadata = {
   title,
@@ -35,6 +69,15 @@ export default function ApartmentDesign() {
               { "@type": "ListItem", position: 1, name: "Главная", item: `${SITE_URL}/` },
               { "@type": "ListItem", position: 2, name: "Дизайн квартиры", item: url },
             ],
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `${url}#faq`,
+            mainEntity: faq.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: { "@type": "Answer", text: item.answer },
+            })),
           },
         ],
       }} />
@@ -76,9 +119,9 @@ export default function ApartmentDesign() {
               <h2>Примеры квартир из портфолио</h2>
               <p>Посмотрите разные квартиры, чтобы обсудить на встрече близкие вам решения:</p>
               <ul className="pl-6">
-                <li><Link href="/portfolio-intereri/Surname/">ЖК «Фамилия» — трёхкомнатная квартира</Link></li>
-                <li><Link href="/portfolio-intereri/Aviator/">Квартира в ЖК «Авиатор»</Link></li>
-                <li><Link href="/portfolio-intereri/Siberian/">Реконструкция квартиры на ул. Сибирской</Link></li>
+                {apartmentCases.map((item) => (
+                  <li key={item.slug}><Link href={`/portfolio-intereri/${item.slug}/`}>{item.title}</Link></li>
+                ))}
               </ul>
               <Link href="/portfolio-intereri/">Все проекты и реализации студии</Link>
             </section>
@@ -92,6 +135,15 @@ export default function ApartmentDesign() {
               <h2>Чем дизайн-проект отличается от 3D-визуализации?</h2>
               <p>Визуализация показывает будущий интерьер. Дизайн-проект также содержит планировочное решение и рабочие чертежи: по ним строители могут определить объём работ, а поставщики — подобрать материалы и мебель. Поэтому изображения и документацию рассматривают вместе.</p>
               <p>Перед первой встречей посмотрите <Link href="/podgotovka-k-dizajn-proektu/">список материалов и вопросов для обсуждения с дизайнером</Link>.</p>
+            </section>
+            <section>
+              <h2>Частые вопросы о дизайне квартиры</h2>
+              {faq.map((item) => (
+                <div key={item.question} className="mt-6">
+                  <h3>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </div>
+              ))}
             </section>
           </div>
         </div>

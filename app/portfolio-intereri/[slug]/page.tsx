@@ -3,7 +3,8 @@ import ImageGallery from "../../components/ImageGallery";
 import JsonLd from "../../components/JsonLd";
 import { fetchApi } from "../../lib/api";
 import { getImageSource } from "../../lib/media";
-import { SITE_URL, orgRef } from "../../lib/schema";
+import { SITE_URL, getProjectPath, orgRef } from "../../lib/schema";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -43,7 +44,7 @@ export async function generateMetadata(props: ProjectPageProps) {
     title,
     description,
     alternates: {
-      canonical: `/portfolio-intereri/${slug}/`,
+      canonical: getProjectPath(slug),
     },
     openGraph: {
       title,
@@ -60,6 +61,7 @@ export default async function Project(props: ProjectPageProps) {
   const { slug } = await props.params;
   const { data } = await getData(props);
   const media = data.content;
+  const service = getServiceLink(data.title);
 
   return (
     <div className="container mx-auto">
@@ -78,8 +80,26 @@ export default async function Project(props: ProjectPageProps) {
         }
         return null;
       })}
+
+      <nav aria-label="Услуги студии" className="flex flex-wrap justify-center gap-x-6 gap-y-3 px-6 pb-24 text-white">
+        <Link href={service.href}>{service.title}</Link>
+        <Link href="/portfolio-intereri/">Все проекты студии</Link>
+      </nav>
     </div>
   );
+}
+
+// Квартиры проверяем первыми: «ЖК Доминант» иначе совпал бы с «дом»
+function getServiceLink(title: string) {
+  if (/квартир|жк/i.test(title)) {
+    return { href: "/dizajn-kvartiry/", title: "Дизайн квартиры в Перми: стоимость и состав проекта" };
+  }
+
+  if (/дом|коттедж|таунхаус/i.test(title)) {
+    return { href: "/", title: "Дизайн интерьера дома и коттеджа в Перми" };
+  }
+
+  return { href: "/dizajn-proekt/", title: "Состав и этапы дизайн-проекта" };
 }
 
 type MediaBlock = {
@@ -111,7 +131,7 @@ const Gallery = ({ data }: { data: Pic[] }) => {
 };
 
 function getProjectSchema(slug: string, title: string, content: MediaBlock[]) {
-  const url = `${SITE_URL}/portfolio-intereri/${slug}/`;
+  const url = `${SITE_URL}${getProjectPath(slug)}`;
   const images = content
     .flatMap((block) => (block.__component === "media.gallery" ? (block.gallery ?? []) : []))
     .slice(0, 12)

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { fetchApi } from "./lib/api";
-import { SITE_URL } from "./lib/schema";
+import { SITE_URL, getProjectPath } from "./lib/schema";
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/`, changeFrequency: "monthly", priority: 1 },
@@ -31,7 +31,7 @@ async function getProjectRoutes(): Promise<MetadataRoute.Sitemap> {
 
       for (const project of response.data) {
         routes.push({
-          url: `${SITE_URL}/portfolio-intereri/${project.slug}/`,
+          url: `${SITE_URL}${getProjectPath(project.slug)}`,
           lastModified: parseDate(project.updatedAt),
           changeFrequency: "yearly",
           priority: 0.7,
