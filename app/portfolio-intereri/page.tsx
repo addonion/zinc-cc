@@ -1,9 +1,9 @@
 import { Pic, Project } from "../types";
-import { fetchApi } from "../lib/api";
+import { fetchApi, getApiUrl } from "../lib/api";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./style.module.css";
-import { getImageSource } from "../lib/media";
+import { getImageSource, normalizePic } from "../lib/media";
 
 export async function generateMetadata() {
   return {
@@ -70,6 +70,7 @@ export default async function Portfolio() {
 
 async function getData() {
   const data: Project[] = [];
+  const base = getApiUrl("/");
   let page = 1;
   let pageCount = 1;
 
@@ -84,7 +85,15 @@ async function getData() {
     page += 1;
   } while (page <= pageCount);
 
-  return { data };
+  return {
+    data: data.map((project) => ({
+      ...project,
+      content: project.content.map((block) => block.gallery ? {
+        ...block,
+        gallery: block.gallery.map((pic) => normalizePic(pic, base)),
+      } : block),
+    })),
+  };
 }
 
 function getPreviewGallery(project: Project) {

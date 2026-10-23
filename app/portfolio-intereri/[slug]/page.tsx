@@ -1,8 +1,8 @@
 import { Pic, ProjectPageProps } from "../../types";
 import ImageGallery from "../../components/ImageGallery";
 import JsonLd from "../../components/JsonLd";
-import { fetchApi } from "../../lib/api";
-import { getImageSource } from "../../lib/media";
+import { fetchApi, getApiUrl } from "../../lib/api";
+import { getImageSource, normalizePic } from "../../lib/media";
 import { SITE_URL, getProjectPath, orgRef } from "../../lib/schema";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -190,9 +190,21 @@ async function getData(props: ProjectPageProps) {
   }
 
   try {
-    return await fetchApi<{ data: { title: string; content: MediaBlock[] } }>(
+    const response = await fetchApi<{ data: { title: string; content: MediaBlock[] } }>(
       `/api/projects/${listing.data[0].documentId}?populate=content.gallery`,
     );
+    const base = getApiUrl("/");
+
+    return {
+      ...response,
+      data: {
+        ...response.data,
+        content: response.data.content.map((block) => block.gallery ? {
+          ...block,
+          gallery: block.gallery.map((pic) => normalizePic(pic, base)),
+        } : block),
+      },
+    };
   } catch {
     notFound();
   }

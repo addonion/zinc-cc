@@ -27,7 +27,7 @@ export async function fetchApi<T>(path: string, init?: NextFetchInit): Promise<T
   return res.json();
 }
 
-function getApiUrl(path: string) {
+export function getApiUrl(path: string) {
   const host = process.env.SERVER_HOST?.trim().replace(/\/+$/, "");
 
   if (!host) {
