@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Top, Bottom } from "./components/Nav";
 import YandexMetrika from "./components/YandexMetrika";
 import JsonLd from "./components/JsonLd";
-import { ORG_ID, SITE_URL, WEBSITE_ID, orgRef } from "./lib/schema";
+import { DEFAULT_OG_IMAGE, ORG_ID, SITE_URL, WEBSITE_ID, defaultOpenGraph, orgRef } from "./lib/schema";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,9 +15,8 @@ export const metadata: Metadata = {
     "Студия дизайна интерьера ZINC в Перми: квартиры, дома и коттеджи. Рабочая документация, 3D-тур. Первая встреча бесплатно, +7 909 100-46-52.",
   robots: { index: true, follow: true },
   openGraph: {
-    type: "website",
-    locale: "ru_RU",
-    siteName: "ZINC",
+    ...defaultOpenGraph,
+    url: "/",
   },
   twitter: { card: "summary_large_image" },
   icons: {
@@ -32,14 +31,14 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "InteriorDesigner"],
+      "@type": "LocalBusiness",
       "@id": ORG_ID,
       name: "Студия дизайна интерьера ZINC",
       description:
         "Студия дизайна интерьера ZINC в Перми: дизайн-проекты квартир, домов и коттеджей, рабочая документация и 3D-туры.",
       url: SITE_URL,
       logo: `${SITE_URL}/img/logo.png`,
-      image: `${SITE_URL}/img/logo.png`,
+      image: DEFAULT_OG_IMAGE,
       telephone: "+7-909-100-46-52",
       email: "info@zinc.cc",
       address: {

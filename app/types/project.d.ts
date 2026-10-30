@@ -17,14 +17,14 @@ export interface Content {
   gallery: Pic[];
 }
 
-export interface Pic {
+export type Pic = {
   id: number;
   name: string;
   alternativeText: string | null;
   caption: string | null;
   width: number;
   height: number;
-  formats: {
+  formats?: {
     [key: string]: {
       hash: string;
       ext: string;
@@ -34,7 +34,7 @@ export interface Pic {
       size: number;
       url: string;
     };
-  };
+  } | null;
   hash: string;
   ext: string;
   mime: string;
@@ -46,4 +46,4 @@ export interface Pic {
   createdAt: string;
   updatedAt: string;
   placeholder: string;
-}
+};

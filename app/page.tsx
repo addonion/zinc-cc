@@ -1,5 +1,6 @@
 import Plans from "./components/Plans";
 import { fetchApi } from "./lib/api";
+import { defaultOpenGraph } from "./lib/schema";
 
 export async function generateMetadata() {
   const fallback = {
@@ -17,6 +18,7 @@ export async function generateMetadata() {
       alternates: {
         canonical: "/",
       },
+      openGraph: { ...defaultOpenGraph, url: "/" },
     };
   } catch {
     return {
@@ -24,6 +26,7 @@ export async function generateMetadata() {
       alternates: {
         canonical: "/",
       },
+      openGraph: { ...defaultOpenGraph, url: "/" },
     };
   }
 }

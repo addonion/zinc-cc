@@ -1,6 +1,6 @@
 import JsonLd from "../components/JsonLd";
 import { fetchApi } from "../lib/api";
-import { SITE_URL, orgRef } from "../lib/schema";
+import { SITE_URL, defaultOpenGraph, orgRef } from "../lib/schema";
 
 interface Team {
   id: number;
@@ -17,6 +17,7 @@ export async function generateMetadata() {
     alternates: {
       canonical: "/contacts/",
     },
+    openGraph: { ...defaultOpenGraph, url: "/contacts/" },
   };
 }
 

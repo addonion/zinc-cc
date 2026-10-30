@@ -1,9 +1,9 @@
 import { Pic, ProjectPageProps } from "../../types";
 import ImageGallery from "../../components/ImageGallery";
 import JsonLd from "../../components/JsonLd";
-import { fetchApi, getApiUrl } from "../../lib/api";
+import { ApiError, fetchApi, getApiUrl } from "../../lib/api";
 import { getImageSource, normalizePic } from "../../lib/media";
-import { SITE_URL, getProjectPath, orgRef } from "../../lib/schema";
+import { DEFAULT_OG_IMAGE, SITE_URL, defaultOpenGraph, getProjectPath, orgRef } from "../../lib/schema";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -17,7 +17,7 @@ export async function generateStaticParams() {
       const response = await fetchApi<{
         data: Array<{ slug: string }>;
         meta: { pagination: { pageCount: number } };
-      }>(`/api/projects?fields[0]=slug&pagination[pageSize]=100&pagination[page]=${page}`);
+      }>(`/api/projects?fields[0]=slug&filters[slug][$ne]=qwe&pagination[pageSize]=100&pagination[page]=${page}`);
 
       for (const project of response.data) {
         slugs.push({ slug: project.slug });
@@ -47,12 +47,12 @@ export async function generateMetadata(props: ProjectPageProps) {
       canonical: getProjectPath(slug),
     },
     openGraph: {
+      ...defaultOpenGraph,
       title,
       description,
       type: "article",
-      ...(firstPic && {
-        images: [getImageSource(firstPic).src],
-      }),
+      url: `${SITE_URL}${getProjectPath(slug)}`,
+      images: [firstPic ? getImageSource(firstPic).src : DEFAULT_OG_IMAGE],
     },
   };
 }
@@ -71,9 +71,9 @@ export default async function Project(props: ProjectPageProps) {
         <h1>{data.title}</h1>
       </div>
 
-      {media.map((block: MediaBlock) => {
+      {media.map((block: MediaBlock, index) => {
         if (block.__component === "media.gallery" && block.gallery) {
-          return <Gallery key={block.id} data={block.gallery} />;
+          return <Gallery key={block.id} data={block.gallery} title={data.title} eager={index === 0} />;
         }
         if (block.__component === "media.3-d-tour" && block.ftp) {
           return <Tour3D key={block.id} data={block.ftp} title={data.title} />;
@@ -121,11 +121,11 @@ const Tour3D = ({ data, title }: { data: string; title: string }) => {
   );
 };
 
-const Gallery = ({ data }: { data: Pic[] }) => {
+const Gallery = ({ data, title, eager }: { data: Pic[]; title: string; eager: boolean }) => {
   const gallery = data.map((item) => item);
   return (
     <div className="columns-2 md:columns-3 xl:columns-4 pb-24">
-      <ImageGallery gallery={gallery} />
+      <ImageGallery gallery={gallery} title={title} eager={eager} />
     </div>
   );
 };
@@ -178,36 +178,53 @@ function getFirstGalleryPic(content: MediaBlock[]) {
 async function getData(props: ProjectPageProps) {
   const { slug } = await props.params;
 
-  let listing: { data: Array<{ documentId: string }> };
-  try {
-    listing = await getPostId(slug);
-  } catch {
+  const listing = await getPostId(slug);
+
+  if (!Array.isArray(listing.data)) {
+    throw new Error("Invalid project listing from API");
+  }
+
+  if (listing.data.length === 0) {
     notFound();
   }
 
-  if (!listing.data[0]) {
-    notFound();
+  const documentId = listing.data[0]?.documentId;
+  if (typeof documentId !== "string" || !documentId) {
+    throw new Error("Invalid project documentId from API");
   }
 
+  let response: { data: { title: string; content: MediaBlock[] } | null };
   try {
-    const response = await fetchApi<{ data: { title: string; content: MediaBlock[] } }>(
-      `/api/projects/${listing.data[0].documentId}?populate=content.gallery`,
+    response = await fetchApi<typeof response>(
+      `/api/projects/${documentId}?populate=content.gallery`,
     );
-    const base = getApiUrl("/");
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 404) {
+      notFound();
+    }
+    throw error;
+  }
 
-    return {
-      ...response,
-      data: {
-        ...response.data,
-        content: response.data.content.map((block) => block.gallery ? {
-          ...block,
-          gallery: block.gallery.map((pic) => normalizePic(pic, base)),
-        } : block),
-      },
-    };
-  } catch {
+  if (response.data === null) {
     notFound();
   }
+
+  if (typeof response.data?.title !== "string" || !response.data.title.trim() || !Array.isArray(response.data.content)) {
+    throw new Error("Invalid project data from API");
+  }
+
+  const base = getApiUrl("/");
+
+  return {
+    ...response,
+    data: {
+      ...response.data,
+      content: response.data.content.map((block) => block.gallery ? {
+        ...block,
+        gallery: block.gallery.map((pic) => normalizePic(pic, base)),
+      } : block),
+    },
+  };
 }
 
 async function getPostId(slug: string) {

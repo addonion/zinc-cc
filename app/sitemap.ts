@@ -26,7 +26,7 @@ async function getProjectRoutes(): Promise<MetadataRoute.Sitemap> {
         data: Array<{ slug: string; updatedAt?: string }>;
         meta: { pagination: { pageCount: number } };
       }>(
-        `/api/projects?fields[0]=slug&fields[1]=updatedAt&pagination[pageSize]=100&pagination[page]=${page}`,
+        `/api/projects?filters[slug][$ne]=qwe&fields[0]=slug&fields[1]=updatedAt&pagination[pageSize]=100&pagination[page]=${page}`,
       );
 
       for (const project of response.data) {

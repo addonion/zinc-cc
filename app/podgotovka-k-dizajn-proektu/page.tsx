@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "../components/JsonLd";
-import { SITE_URL, orgRef } from "../lib/schema";
+import { SITE_URL, defaultOpenGraph, orgRef } from "../lib/schema";
 
 const title = "Как подготовиться к дизайн-проекту — памятка ZINC";
 const description = "Что подготовить к первой встрече с дизайнером: план помещения, задачи семьи, примеры интерьеров, бюджет и сроки. Памятка студии ZINC в Перми.";
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/podgotovka-k-dizajn-proektu/" },
+  openGraph: { ...defaultOpenGraph, type: "article", url },
 };
 
 export default function DesignPreparation() {

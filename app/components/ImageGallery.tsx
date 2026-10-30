@@ -2,20 +2,21 @@
 
 import React, { useState } from "react";
 import Modal from "./Modal";
-import Image from "next/image";
 import { Pic } from "../types";
-import { getImageSource } from "../lib/media";
+import { getResponsiveImageProps } from "../lib/media";
 
 type Gallery = {
   gallery: Pic[];
+  title: string;
+  eager?: boolean;
 };
 
-const ImageGallery: React.FC<Gallery> = ({ gallery }) => {
+const ImageGallery: React.FC<Gallery> = ({ gallery, title, eager }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<Pic | null>(null);
 
-  const openModal = (pic: Pic) => {
-    setSelectedImage(pic);
+  const openModal = (pic: Pic, alternativeText: string) => {
+    setSelectedImage({ ...pic, alternativeText });
     setIsModalOpen(true);
   };
 
@@ -26,29 +27,29 @@ const ImageGallery: React.FC<Gallery> = ({ gallery }) => {
 
   return (
     <div>
-      {gallery.map((pic, index) => (
-        <div key={pic.hash}>
-          <button
-            type="button"
-            className="mb-4 block cursor-zoom-in border-0 bg-transparent p-0 text-left"
-            aria-label={`Открыть изображение ${index + 1}`}
-            onClick={() => openModal(pic)}
-          >
-            {(() => {
-              const image = getImageSource(pic, ["medium", "small", "thumbnail"]);
+      {gallery.map((pic, index) => {
+        const alt = pic.alternativeText?.trim() ? pic.alternativeText : `${title} — фото ${index + 1}`;
+        const image = getResponsiveImageProps(pic);
 
-              return (
-                <Image
-                  src={image.src}
-                  width={image.width}
-                  height={image.height}
-                  alt={pic.alternativeText || `Изображение ${index + 1}`}
-                />
-              );
-            })()}
-          </button>
-        </div>
-      ))}
+        return (
+          <div key={pic.hash}>
+            <button
+              type="button"
+              className="mb-4 block cursor-zoom-in border-0 bg-transparent p-0 text-left"
+              aria-label={`Открыть: ${alt}`}
+              onClick={() => openModal(pic, alt)}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element -- CMS supplies responsive image files. */}
+              <img
+                {...image}
+                alt={alt}
+                loading={eager && index === 0 ? "eager" : "lazy"}
+                fetchPriority={eager && index === 0 ? "high" : undefined}
+              />
+            </button>
+          </div>
+        );
+      })}
 
       <Modal isOpen={isModalOpen} onClose={closeModal} pic={selectedImage} />
     </div>

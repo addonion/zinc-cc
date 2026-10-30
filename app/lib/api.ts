@@ -4,6 +4,13 @@ type NextFetchInit = RequestInit & {
   };
 };
 
+export class ApiError extends Error {
+  constructor(public readonly status: number, path: string) {
+    super(`API ${path} responded with ${status}`);
+    this.name = "ApiError";
+  }
+}
+
 export async function fetchApi<T>(path: string, init?: NextFetchInit): Promise<T> {
   const url = getApiUrl(path);
 
@@ -21,7 +28,7 @@ export async function fetchApi<T>(path: string, init?: NextFetchInit): Promise<T
   }
 
   if (!res.ok) {
-    throw new Error(`API ${url.pathname} responded with ${res.status}`);
+    throw new ApiError(res.status, url.pathname);
   }
 
   return res.json();

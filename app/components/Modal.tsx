@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Image from "next/image";
 import { Pic } from "../types";
-import { getImageSource } from "../lib/media";
+import { getImageSource, getResponsiveImageProps } from "../lib/media";
 
 interface ModalProps {
   isOpen: boolean;
@@ -33,6 +32,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, pic }) => {
   if (!isOpen || !pic) return null;
 
   const image = getImageSource(pic, ["large", "medium", "small"]);
+  const sizes = `min(${image.width}px, calc(100vw - 32px), ${90 * image.width / image.height}vh)`;
 
   return (
     <div
@@ -43,12 +43,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, pic }) => {
       onClick={onClose}
     >
       <div className="relative max-h-full max-w-full" onClick={(event) => event.stopPropagation()}>
-        <Image
-          src={image.src}
-          width={image.width}
-          height={image.height}
+        {/* eslint-disable-next-line @next/next/no-img-element -- CMS supplies responsive image files. */}
+        <img
+          {...getResponsiveImageProps(pic, sizes, ["large", "medium", "small"])}
           alt={pic.alternativeText || "Изображение проекта"}
           className="max-h-[90vh] w-auto"
+          loading="eager"
         />
         <button
           type="button"

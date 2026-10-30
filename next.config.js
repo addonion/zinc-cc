@@ -8,6 +8,11 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/portfolio-intereri/qwe/",
+        destination: "/portfolio-intereri/noviicentr/",
+        permanent: true,
+      },
     ];
   },
   images: {

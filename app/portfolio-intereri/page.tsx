@@ -1,16 +1,25 @@
 import { Pic, Project } from "../types";
 import { fetchApi, getApiUrl } from "../lib/api";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./style.module.css";
-import { getImageSource, normalizePic } from "../lib/media";
+import { getResponsiveImageProps, normalizePic } from "../lib/media";
+import { SITE_URL, defaultOpenGraph, getProjectPath } from "../lib/schema";
 
 export async function generateMetadata() {
+  const title = "Портфолио дизайна интерьера в Перми — квартиры и дома";
+  const description = "Портфолио студии дизайна интерьера ZINC в Перми: реализованные проекты квартир и домов. Смотрите интерьеры, созданные нашей командой.";
+
   return {
-    title: "Портфолио дизайна интерьера в Перми — квартиры и дома",
-    description: "Портфолио студии дизайна интерьера ZINC в Перми: реализованные проекты квартир и домов. Смотрите интерьеры, созданные нашей командой.",
+    title,
+    description,
     alternates: {
       canonical: "/portfolio-intereri/",
+    },
+    openGraph: {
+      ...defaultOpenGraph,
+      title,
+      description,
+      url: `${SITE_URL}/portfolio-intereri/`,
     },
   };
 }
@@ -27,30 +36,31 @@ export default async function Portfolio() {
         </div>
       </div>
 
-      {data.map((project: Project) => {
+      {data.map((project: Project, projectIndex) => {
         const randomGallery = getPreviewGallery(project);
 
         return (
           <div key={project.id} className="mx-auto mb-24">
             <h2 className="mb-6 text-center text-white">
-              <Link href={`/portfolio-intereri/${project.slug}/`}>{project.title}</Link>
+              <Link href={getProjectPath(project.slug)}>{project.title}</Link>
             </h2>
             <div className="overflow-hidden h-[60vh]">
               <div className="columns-2 md:columns-3 xl:columns-4">
-                {randomGallery.map((pic) => {
+                {randomGallery.map((pic, index) => {
                   if (!pic) {
                     return null
                   }
-                  const image = getImageSource(pic, ["medium", "small", "thumbnail"]);
+                  const image = getResponsiveImageProps(pic);
 
                   return (
-                    <Link href={`/portfolio-intereri/${project.slug}/`} key={pic.hash}>
-                      <Image
-                        src={image.src}
-                        width={image.width}
-                        height={image.height}
-                        alt={pic.alternativeText || project.title}
+                    <Link href={getProjectPath(project.slug)} key={pic.hash}>
+                      {/* eslint-disable-next-line @next/next/no-img-element -- CMS supplies responsive image files. */}
+                      <img
+                        {...image}
+                        alt={pic.alternativeText?.trim() ? pic.alternativeText : `${project.title} — фото ${index + 1}`}
                         className="mb-4"
+                        loading={projectIndex === 0 && index === 0 ? "eager" : "lazy"}
+                        fetchPriority={projectIndex === 0 && index === 0 ? "high" : undefined}
                       />
                     </Link>
                   )
@@ -58,7 +68,7 @@ export default async function Portfolio() {
               </div>
             </div>
 
-            <Link href={`/portfolio-intereri/${project.slug}/`} className={`${styles.more} text-center text-lg text-white`}>
+            <Link href={getProjectPath(project.slug)} className={`${styles.more} text-center text-lg text-white`}>
               Смотреть весь проект
             </Link>
           </div>
@@ -78,7 +88,7 @@ async function getData() {
     const response = await fetchApi<{
       data: Project[];
       meta: { pagination: { pageCount: number } };
-    }>(`/api/projects?populate=content.gallery&pagination[pageSize]=25&pagination[page]=${page}`);
+    }>(`/api/projects?populate=content.gallery&filters[slug][$ne]=qwe&pagination[pageSize]=25&pagination[page]=${page}`);
 
     data.push(...response.data);
     pageCount = response.meta.pagination.pageCount;

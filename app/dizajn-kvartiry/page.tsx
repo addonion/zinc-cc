@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "../components/JsonLd";
 import Plans from "../components/Plans";
-import { SITE_URL, orgRef } from "../lib/schema";
+import { SITE_URL, defaultOpenGraph, orgRef } from "../lib/schema";
 
 const title = "Дизайн квартиры в Перми — дизайн-проект и цены | ZINC";
 const description = "Дизайн-проект квартиры в Перми: планировка, мебель, освещение, 3D-тур и чертежи. Примеры квартир из портфолио ZINC, состав проекта и тарифы.";
@@ -46,6 +46,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/dizajn-kvartiry/" },
+  openGraph: { ...defaultOpenGraph, url },
 };
 
 export default function ApartmentDesign() {
