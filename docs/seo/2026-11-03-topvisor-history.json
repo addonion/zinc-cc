@@ -1,0 +1,1570 @@
+{
+ "fetched_at": "2026-11-03T18:50:00+05:00",
+ "project_id": 7630169,
+ "project": "Zinc (zinc.cc)",
+ "source": "Topvisor API get/positions_2/history",
+ "regions": {
+  "yandex": 82,
+  "google": 146
+ },
+ "dates": [
+  "2026-10-03",
+  "2026-10-19",
+  "2026-10-26",
+  "2026-11-02"
+ ],
+ "note": "2026-11-02: Yandex check stopped (refund 4.23 RUB), Google partial (6 of 47). 2026-10-19: only Google charged per bank log.",
+ "keywords": [
+  {
+   "name": "дизайн интерьера",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "69",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн интерьера пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "9",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "58",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "22",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "27",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайнер интерьера пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "21",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "25",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "25",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "студия дизайна интерьера пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "17",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "15",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "16",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "26",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн студия пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "22",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "17",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "27",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "22",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "4",
+     "relevant_url": "https://zinc.cc"
+    }
+   }
+  },
+  {
+   "name": "услуги дизайнера интерьера пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "26",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "31",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "30",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "28",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "заказать дизайн интерьера пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "21",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "60",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "27",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "8",
+     "relevant_url": "https://zinc.cc"
+    }
+   }
+  },
+  {
+   "name": "дизайн интерьера пермь цена",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "33",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "63",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "26",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "25",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "стоимость дизайна интерьера пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "26",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "38",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "80",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "23",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "23",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "9",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн проект пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "19",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "31",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "26",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "24",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн квартиры пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "71",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "24",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "9",
+     "relevant_url": "https://zinc.cc"
+    }
+   }
+  },
+  {
+   "name": "дизайн интерьера квартиры пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "62",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "65",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "24",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн квартир пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "58",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "65",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "20",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн интерьера квартир пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "64",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "65",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "20",
+     "relevant_url": "https://zinc.cc/dizajn-kvartiry/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайнер квартиры пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "30",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "64",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн проект квартиры пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "34",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "35",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "18",
+     "relevant_url": "https://zinc.cc/contacts/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "2",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн проект квартиры пермь цена",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "61",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "41",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "25",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн квартиры пермь цена",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "25",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "25",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн дома пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "11",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "16",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "20",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "4",
+     "relevant_url": "https://zinc.cc"
+    }
+   }
+  },
+  {
+   "name": "дизайн интерьера дома пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "8",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "3",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "7",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "18",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн коттеджа пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "9",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "10",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн интерьера коттеджа пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "10",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "8",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "12",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "11",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "9",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн проект дома пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "15",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "16",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "26",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "26",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн проект коттеджа пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "8",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "10",
+     "relevant_url": "https://zinc.cc/dizajn-proekt/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "12",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "27",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн загородного дома пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "15",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "23",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "9",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "9",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайнер дома пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "11",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "15",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "15",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "7",
+     "relevant_url": "https://zinc.cc/contacts/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "авторский надзор пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "49",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "авторский надзор дизайнера пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "17",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "18",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "7",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "планировочное решение квартиры пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "3д визуализация интерьера пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "zinc пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "студия zinc",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "4",
+     "relevant_url": "http://zinc.cc/"
+    }
+   }
+  },
+  {
+   "name": "zinc дизайн",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "2",
+     "relevant_url": "https://zinc.cc/contacts/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "3",
+     "relevant_url": "https://zinc.cc/contacts/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "цинк дизайн пермь",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "19",
+     "relevant_url": "https://zinc.cc/contacts/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "3",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "студия дизайна zinc",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:82": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-03:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "1",
+     "relevant_url": "https://zinc.cc"
+    }
+   }
+  },
+  {
+   "name": "дизайн проект квартиры",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн проект квартиры стоимость",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайнер интерьера",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "студия дизайна интерьера",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "81",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "услуги дизайнера интерьера",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "заказать дизайн интерьера",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн интерьера дома",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "82",
+     "relevant_url": "https://zinc.cc/"
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "дизайн однокомнатной квартиры",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "заказать дизайн проект квартиры",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "технический дизайн проект квартиры",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "планировочное решение квартиры",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  },
+  {
+   "name": "этапы дизайн проекта",
+   "positionsData": {
+    "2026-10-03:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:82": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-03:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-19:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-10-26:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    },
+    "2026-11-02:7630169:146": {
+     "position": "--",
+     "relevant_url": ""
+    }
+   }
+  }
+ ]
+}
