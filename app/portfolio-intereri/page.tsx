@@ -1,5 +1,5 @@
 import { Pic, Project } from "../types";
-import { fetchApi, getApiUrl } from "../lib/api";
+import { ApiError, fetchApi, getApiUrl } from "../lib/api";
 import Link from "next/link";
 import styles from "./style.module.css";
 import { getResponsiveImageProps, normalizePic } from "../lib/media";
@@ -25,7 +25,14 @@ export async function generateMetadata() {
 }
 
 export default async function Portfolio() {
-  const { data } = await getData();
+  const [{ data }, featuredIds] = await Promise.all([getData(), getFeaturedProjectIds()]);
+
+  if (featuredIds.length > 0) {
+    const positions = new Map(featuredIds.map((id, index) => [id, index]));
+    const position = (project: Project) => positions.get(project.documentId || "") ?? featuredIds.length;
+
+    data.sort((a, b) => position(a) - position(b));
+  }
 
   return (
     <div className="container mx-auto">
@@ -78,6 +85,22 @@ export default async function Portfolio() {
   );
 }
 
+async function getFeaturedProjectIds() {
+  try {
+    const { data } = await fetchApi<{
+      data: { featuredProjects: { documentId: string }[] } | null;
+    }>("/api/portfolio?populate[featuredProjects][fields][0]=slug");
+
+    return data?.featuredProjects?.map(({ documentId }) => documentId) || [];
+  } catch (error) {
+    if (error instanceof ApiError && (error.status === 403 || error.status === 404)) {
+      return [];
+    }
+
+    throw error;
+  }
+}
+
 async function getData() {
   const data: Project[] = [];
   const base = getApiUrl("/");
@@ -88,7 +111,7 @@ async function getData() {
     const response = await fetchApi<{
       data: Project[];
       meta: { pagination: { pageCount: number } };
-    }>(`/api/projects?populate=content.gallery&filters[slug][$ne]=qwe&pagination[pageSize]=25&pagination[page]=${page}`);
+    }>(`/api/projects?populate=content.gallery&filters[slug][$ne]=qwe&sort[0]=createdAt:desc&sort[1]=documentId:asc&pagination[pageSize]=25&pagination[page]=${page}`);
 
     data.push(...response.data);
     pageCount = response.meta.pagination.pageCount;
